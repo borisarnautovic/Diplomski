@@ -20,6 +20,27 @@ function renderHTML(path, response)
 }
 
 
+function serveMusic(path, response)
+{
+    fs.readFile("./Songs/KAZKA", null, function(error, data)
+    {
+        if (error)
+        {
+            console.log("dasda")
+            response.writeHead(404);
+            response.write('File not found!');
+        }
+        else
+        {
+            console.log(data);
+            fs.writeFile(data);
+           response.end();
+        }
+    });
+    
+}
+
+
 
 module.exports = 
 {
@@ -50,6 +71,9 @@ module.exports =
                 break;
             case '/node_modules/bootstrap/dist/js/bootstrap.min.js':
                 renderHTML('./node_modules/bootstrap/dist/js/bootstrap.min.js', response);
+                break;
+            case '/Songs/Kazka.mp3':
+                serveMusic('./Songs/Kazka.mp3',response);
                 break;
            
             case '/treca':

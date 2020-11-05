@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "qrcodejs": "^1.0.0",
-    "resolve-url-loader": "^3.1.1",
+    "resolve-url-loader": "^3.1.2",
     "ws": "^7.3.1"
   },
   "devDependencies": {

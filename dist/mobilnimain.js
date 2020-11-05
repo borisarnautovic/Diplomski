@@ -140,7 +140,7 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"SERVER_IP\", function() { return SERVER_IP; });\nconst SERVER_IP = '192.168.1.20';\n\n\n//# sourceURL=webpack:///./src/const.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"SERVER_IP\", function() { return SERVER_IP; });\nconst SERVER_IP = '192.168.0.30';\n\n\n//# sourceURL=webpack:///./src/const.js?");
 
 /***/ }),
 

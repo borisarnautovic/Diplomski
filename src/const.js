@@ -1,3 +1,3 @@
 
-const SERVER_IP = '192.168.1.20';
+const SERVER_IP = '192.168.0.30';
 export { SERVER_IP };
