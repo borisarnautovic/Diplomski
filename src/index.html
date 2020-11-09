@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-      
-    
-    <script type="text/html" src="./../node_modules/qrcodejs/jquery.min.js"></script>
-    <script type="text/javascript" src="./../node_modules/qrcodejs/qrcode.js"></script>
-    
+          
 
     
 </head>
@@ -21,7 +17,10 @@
     <h1>Boris je car</h1> 
     
 
-    <button onclick="window.location.href='http://192.168.0.30:3000/mobilni';">mobilni</button>
+    <button onclick=goToMobilni()>mobilni</button>
+   
+    <a href= "http://192.168.0.28:3000/mobilni ">Mobilni</a> 
+    
 
   <!--   <button id="myBtn">Dugme</button>
 
@@ -40,30 +39,42 @@
 
    
 
-    <input id="text" type="text" value="http://192.168.0.30:3000/mobilni" style="width:80%" /><br /> <!-- Adresa na koju nas vodi skenirani qr kod -->
+    <input id="text" type="text" value="http://192.168.0.28:3000/mobilni" style="width:80%" /><br /> <!-- Adresa na koju nas vodi skenirani qr kod -->
     <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div> <br>  
 
 
     
 
-    <audio src="" controls id="audioPlayer">
+    <audio src="../public/KAZKA.mp3" controls id="audioPlayer"  style="width: 380px;">
 
         Sorry, your browser doesn't support html5!
     </audio>
 
     <ul id="playlist">
-        <li class="current-song"><a href="../Songs/KAZKA.mp3">KAZKA - Plakala</a></li>
-        <li><a href="../Songs/El_Comandante.mp3">Costa S - El Comandante</a></li>
-        <li><a href="../Songs/Mombassa.mp3">Mombassa</a></li>
-        <li><a href="../Songs/Morandi.mp3">Morandi - Kalinka rmx</a></li>
+        <li class="current-song"><a href="../public/KAZKA.mp3">KAZKA - Plakala</a></li>
+        <li><a href="../public/El_Comandante.mp3">Costa S - El Comandante</a></li>
+        <li><a href="../public/Mombassa.mp3">Mombassa</a></li>
+        <li><a href="../public/Morandi.mp3">Morandi - Kalinka rmx</a></li>
 
     </ul>
-    <script>
+    <!-- <script>
         audioPlayer();
-    </script>
+    </script> -->
 
 </body>
 
+
+
+<script type="text/html" src="./../node_modules/qrcodejs/jquery.min.js"></script>
+<script type="text/javascript" src="./../node_modules/qrcodejs/qrcode.js"></script>
+
 <script type="text/javascript" src="dist/indexmain.js"></script> 
+
+<script>
+    function goToMobilni (){
+        window.location.href='http://192.168.0.28:3000/mobilni'
+    }
+</script>
+
 
 </html>

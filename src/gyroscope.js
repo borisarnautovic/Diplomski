@@ -29,13 +29,14 @@ ws.addEventListener("message", ({data}) => {
         function (c) {
           d.push("deviceorientation"),
             (a.alpha = c.alpha - b.alpha),
-            (a.beta = c.beta - b.beta);            
+            (a.beta = c.beta - b.beta),
+            (a.gamma = c.gamma - b.gamma);            
         },
         !0
       );
   }
-  var a = {  alpha: null, beta: null },
-    b = { alpha: 0, beta: 0 },
+  var a = {  alpha: null, beta: null, gamma: null },
+    b = { alpha: 0, beta: 0, gamma: 0  },
     c = null,
     d = [];
   (window.gyro = {}),
@@ -66,13 +67,14 @@ ws.addEventListener("message", ({data}) => {
 
 gyro.startTracking(function (o) {
   var b = document.getElementById("example"),
-    f = document.getElementById("features");
+  f = document.getElementById("features");
   f.innerHTML = gyro.getFeatures();
 
 
   ws.send (JSON.stringify({
-    alpha : o.alpha,
-     beta : o.beta
+     alpha : o.alpha,
+     beta : o.beta,
+     gamma : o.gamma
   }));  
 
 
@@ -83,5 +85,8 @@ gyro.startTracking(function (o) {
     "</p>" +
     '<p id="beta"> beta = ' +
     o.beta +
-    "</p>" ;
+    "</p>" +
+    '<p id="gamma"> gamma = ' +
+    o.gamma +
+    "</p>";
 });
