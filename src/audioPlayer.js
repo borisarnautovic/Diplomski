@@ -32,11 +32,29 @@
             });
         }*/
 
-var audioElement = document.getElementById("audioPlayer");
-audioElement.volume = 0.5;
-function audioPlayer(options)
-{
-    if(options.volume ){
-        audioElement.volume = options.volume;
-    }
-};
+        var audioElement = document.getElementById("audioPlayer");
+        audioElement.volume = 0.5;
+        
+        function audioPlayer(options)
+        {
+            if(options.volume ){
+                audioElement.volume = options.volume;
+            }
+        };
+
+        const ws = new WebSocket("ws://localhost:8085");
+    
+          
+    
+        ws.addEventListener("open", () => {
+            console.log("Computer is connected!"); 
+    
+            //ws.send("Hey, how's it going?");
+        });
+    
+        ws.addEventListener("message", ({data}) => {
+            console.log(JSON.parse(data))
+            audioPlayer(JSON.parse(data));
+            
+        });
+
