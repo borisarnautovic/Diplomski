@@ -1,50 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
+    <head>
+        <title>Diplomski</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        
+   </head>
+<body>    
+    <nav class="navbar navbar-expand-lg text-warning">
+        <a class="navbar-brand" href="/"><strong><h2>WebDJ!</h2></strong></a>     
 
-          
-
-    
-</head>
-<body>
-
-    
-
-    <h1>Diplomski</h1> 
+        <a class="nav-link text-warning" id="nav-link" href="http://192.168.0.19:3000/mobilni"><h5>Mobilni</h5></a>
+      </nav>    
     
 
-    <button onclick=goToMobilni()>mobilni</button>
-   
-    <a href= "http://192.168.43.235:3000/mobilni ">Mobilni</a> 
+    <div class="container-fluid text-center">
+        <h1>My First Bootstrap Page</h1>
+        <p>Please scan QR code with your phone!</p> 
+
+        <!-- <input id="text" type="text" value="http://192.168.0.19:3000/mobilni" style="width:80%" /><br /> Adresa na koju nas vodi skenirani qr kod -->
+        <div id="qrcode"></div> <br>
+
+    </div>
+
+    <div class="container-fluid text-center">
+
+        <audio src="../public/KAZKA.mp3" controls id="audioPlayer"  style="width: 380px;">
+
+            Sorry, your browser doesn't support html5!
+        </audio>
     
+        <ul id="playlist">
+            <li class="current-song"><a href="../public/KAZKA.mp3">KAZKA - Plakala</a></li>
+            <li><a href="../public/El_Comandante.mp3">Costa S - El Comandante</a></li>
+            <li><a href="../public/Mombassa.mp3">Mombassa</a></li>
+            <li><a href="../public/Morandi.mp3">Morandi - Kalinka rmx</a></li>
+    
+        </ul>
 
-   
-
-    <input id="text" type="text" value="http://192.168.43.235:3000/mobilni" style="width:80%" /><br /> <!-- Adresa na koju nas vodi skenirani qr kod -->
-    <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div> <br>  
-
+    </div>   
+  
 
     
-
-    <audio src="../public/KAZKA.mp3" controls id="audioPlayer"  style="width: 380px;">
-
-        Sorry, your browser doesn't support html5!
-    </audio>
-
-    <ul id="playlist">
-        <li class="current-song"><a href="../public/KAZKA.mp3">KAZKA - Plakala</a></li>
-        <li><a href="../public/El_Comandante.mp3">Costa S - El Comandante</a></li>
-        <li><a href="../public/Mombassa.mp3">Mombassa</a></li>
-        <li><a href="../public/Morandi.mp3">Morandi - Kalinka rmx</a></li>
-
-    </ul>
-    <!-- <script>
-        audioPlayer();
-    </script> -->
+    <script>
+        playlist();
+    </script>    
+    
 
 </body>
 
@@ -54,12 +54,5 @@
 <script type="text/javascript" src="./../node_modules/qrcodejs/qrcode.js"></script>
 
 <script type="text/javascript" src="dist/indexmain.js"></script> 
-
-<script>
-    function goToMobilni (){
-        window.location.href='http://192.168.43.235:3000/mobilni'
-    }
-</script>
-
 
 </html>

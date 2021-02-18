@@ -1,5 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const  CleanWebpackPlugin  = require('clean-webpack-plugin');
 const path = require('path');
 
 
@@ -17,7 +17,7 @@ module.exports =
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name]main.js'
-  },
+  },    
 
     module:
     {
@@ -33,8 +33,8 @@ module.exports =
             },
             
             {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
 
             {
@@ -49,8 +49,22 @@ module.exports =
                     
                 ]
             },
-        ]
+            {
+                test: /\.(jpg|png|svg|gid)$/,
+                use: 
+                [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'img',
+                            publicPath: 'public/'                            
+                        }
+                    }
+                ]
+            },
+        ]        
         
-    },    
+    },             
 
 }

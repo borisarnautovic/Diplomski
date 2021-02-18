@@ -11,20 +11,40 @@ app.get('/mobilni', function(req, res) {
     res.sendFile(path.join(__dirname + '/src/mobilni.html'));
 });
 
+app.get('/treca', function(req, res) {
+    res.sendFile(path.join(__dirname + '/src/treca.html'));
+});
+
 app.get('/dist/mobilnimain.js', function(req, res) {
     res.sendFile(path.join(__dirname + '/dist/mobilnimain.js'));
 });
+
 
 app.get('/dist/indexmain.js', function(req, res) {
     res.sendFile(path.join(__dirname + '/dist/indexmain.js'));
 });
 
+app.get('/dist/img/background.jpg', function(req, res) {
+    res.sendFile(path.join(__dirname + '/dist/img/background.jpg'));
+});
+
+
 app.get('/node_modules/qrcodejs/qrcode.js', function(req, res) {
     res.sendFile(path.join(__dirname + '/node_modules/qrcodejs/qrcode.js'));
 });
 
+app.get('/node_modules/bootstrap/dist/css/bootstrap.min.css', function(req, res) {
+    res.sendFile(path.join(__dirname + '/node_modules/bootstrap/dist/css/bootstrap.min.css'));
+});
+
+app.get('/node_modules/bootstrap/dist/js/bootstrap.min.js', function(req, res) {
+    res.sendFile(path.join(__dirname + '/node_modules/bootstrap/dist/js/bootstrap.min.js'));
+});
+
+
 
 app.use('/public', express.static(path.join(__dirname, '/public')))
+
 
 
 app.listen(port, () => {
@@ -51,7 +71,9 @@ let brGamma = 0;
 let stabAlpha = 0;
 let alphaDodeljena = false;
 
-const coef = 0.00555555555555555555555555555556;
+//const coef = 0.00555555555555555555555555555556;
+
+const coef = 0.5/90;
 
 let second_socket_helper = null;
 
@@ -79,7 +101,7 @@ wss.on("connection", ws => {
          const data = JSON.parse(message);
            
         
-        console.log('alpha: ' + data.alpha + ', beta: ' +  data.beta + ', gamma: ' + data.gamma);
+       // console.log('alpha: ' + data.alpha + ', beta: ' +  data.beta + ', gamma: ' + data.gamma);
         
         
 
@@ -116,7 +138,7 @@ wss.on("connection", ws => {
 
         if(brBeta == 100)
         {
-          //  console.log("Beta stabilozovano");
+            console.log("Beta stabilozovano");
         }
         
 
@@ -157,11 +179,11 @@ wss.on("connection", ws => {
 
         if(brGamma == 100)
         {
-           // console.log("Gamma stabilozovano");
+           console.log("Gamma stabilozovano");
         }
 
 
-//----------------------------------------------------- SMANJIVANJE ZVUKA ------------------------------------------
+//----------------------------------------------------- KONTROLA ZVUKA ------------------------------------------
     if(brBeta >= 100 && brGamma >= 100)
     {
         if(!alphaDodeljena)
@@ -196,7 +218,7 @@ wss.on("connection", ws => {
             }
             else if(stabAlpha >= 270 && stabAlpha <= 360 )
             {
-                 if(data.alpha >= Math.abs(stabAlpha-90) && data.alpha <=Math.abs(stabAlpha+90)) // u slucaju smanjivanja do 360
+                 if(data.alpha >= Math.abs(stabAlpha-90) && data.alpha <=Math.abs(stabAlpha+90)) // u slucaju pojacavanja i smanjivanja do 360
                 {
                     
                     const razlika = stabAlpha - data.alpha;
