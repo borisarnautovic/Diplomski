@@ -4,6 +4,7 @@ import './qrcode.js';
 import { SERVER_IP } from './const.js'; 
 import './style.scss';
 import './audioPlayer';
+
 export default { SERVER_IP };
 //import { XSound, X } from 'xsound';
 

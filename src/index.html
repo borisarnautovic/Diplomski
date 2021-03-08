@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Diplomski</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        
-   </head>
-<body>    
-    <nav class="navbar navbar-expand-lg text-warning">
-        <a class="navbar-brand" href="/"><strong><h2>WebDJ!</h2></strong></a>     
 
-        <a class="nav-link text-warning" id="nav-link" href="http://192.168.0.19:3000/mobilni"><h5>Mobilni</h5></a>
-      </nav>    
-    
+<head>
+    <title>Diplomski</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg text-warning">
+        <a class="navbar-brand" href="/"><strong>
+                <h2>WebDJ!</h2>
+            </strong></a>
+
+        <a class="nav-link text-danger" id="nav-link" href="http://192.168.0.34:3000/mobilni">
+            <h4>Mobilni</h4>
+        </a>
+    </nav>
+
 
     <div class="container-fluid text-center">
         <h1>My First Bootstrap Page</h1>
-        <p>Please scan QR code with your phone!</p> 
+        <p>Please scan QR code with your phone!</p>
 
         <!-- <input id="text" type="text" value="http://192.168.0.19:3000/mobilni" style="width:80%" /><br /> Adresa na koju nas vodi skenirani qr kod -->
         <div id="qrcode"></div> <br>
 
     </div>
+  
 
     <div class="container-fluid text-center">
 
-        <audio src="../public/KAZKA.mp3" controls id="audioPlayer"  style="width: 380px;">
+        <div class="audioPlayer"></div>        
 
-            Sorry, your browser doesn't support html5!
-        </audio>
-    
-        <ul id="playlist">
-            <li class="current-song"><a href="../public/KAZKA.mp3">KAZKA - Plakala</a></li>
-            <li><a href="../public/El_Comandante.mp3">Costa S - El Comandante</a></li>
-            <li><a href="../public/Mombassa.mp3">Mombassa</a></li>
-            <li><a href="../public/Morandi.mp3">Morandi - Kalinka rmx</a></li>
-    
-        </ul>
+    </div>
 
-    </div>   
-  
 
-    
-    <script>
-        playlist();
-    </script>    
-    
 
 </body>
 
@@ -53,6 +44,6 @@
 <script type="text/html" src="./../node_modules/qrcodejs/jquery.min.js"></script>
 <script type="text/javascript" src="./../node_modules/qrcodejs/qrcode.js"></script>
 
-<script type="text/javascript" src="dist/indexmain.js"></script> 
+<script type="text/javascript" src="dist/indexmain.js"></script>
 
 </html>
