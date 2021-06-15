@@ -12,9 +12,7 @@ app.get('/mobilni', function (req, res) {
     res.sendFile(path.join(__dirname + '/src/mobilni.html'));
 });
 
-app.get('/treca', function (req, res) {
-    res.sendFile(path.join(__dirname + '/src/treca.html'));
-});
+app.use('/public', express.static(path.join(__dirname, '/public')));
 
 app.get('/dist/mobilnimain.js', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/mobilnimain.js'));
@@ -44,7 +42,7 @@ app.get('/node_modules/bootstrap/dist/js/bootstrap.min.js', function (req, res) 
 
 
 
-app.use('/public', express.static(path.join(__dirname, '/public')));
+
 
 app.use('/fonts', express.static(path.join(__dirname, '/fonts')));
 

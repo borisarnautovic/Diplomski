@@ -1,6 +1,5 @@
-
+import { SERVER_IP } from "./const.js";
 //import { render } from "sass";
-export { player }
 
 class AudioPlayer {
     constructor(selector = '.audioPlayer', audio = []) {
@@ -218,27 +217,21 @@ const player = new AudioPlayer('.audioPlayer', [
 
 //--------------------------------------------------------------
 
-player.audioElem.volume = 0.5
+player.audioElem.volume = 0.5;
 function changingVolume(options) {
     if (options.volume) {
         player.audioElem.volume = options.volume;
+        if(player.audioElem.volume <= 0.0045){
+            player.audioElem.volume = player.audioElem.muted;
+        }
 
     }
 }
 
+export default changingVolume;
 
 
-// var audioElement = document.getElementById("audioPlayer");
-// audioElement.volume = 0.5;
-
-
-// function audioPlayer(options) {
-//     if (options.volume) {
-//         audioElement.volume = options.volume;
-//     }
-// };
-
-const ws = new WebSocket("ws://localhost:8085");
+const ws = new WebSocket(`ws://${SERVER_IP}:8085`);
 
 
 

@@ -17,9 +17,8 @@ $warning: teal;
 
 #qrcode 
 {
-  width:160px;
-  height:160px;
-  margin-top:15px;
+  width:160px;  
+  margin: auto;
 }  
 
 h1 
@@ -34,13 +33,7 @@ p
     font-size: large;
 }
 
-#qrcode
-{
-  width: 1000px;
-  height: 100px;
-  margin-top:15px; 
-  margin-left: auto;
-}
+
 
 #example, #features 
 {
@@ -59,7 +52,7 @@ p
 body {  
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../public/background.jpg"); 
+  background-image: url("../public/background.jpg");   
 }
 .navbar {
   background-color: lightskyblue;
@@ -68,22 +61,23 @@ body {
   border-bottom: solid 5px;
 }
 .navbar-brand {
-  color: black;
+  color: #000;
 }
 
-/*#audioPlayer
-{
-  margin-top: 5px;  
-}*/
+.container-fluid{  
+  align-items: center;
+}
 
 .audioPlayer {
-  margin: 15px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
   border: solid lightskyblue 5px;
   box-shadow: 0 0 32px 4px rgba(0,0,0,0.2);
   font-family: 'Source Sans Pro', sans-serif;
-  width: 600px;
+  width: 650px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;    
   canvas {
       margin-top: 10px;
       flex: 2;

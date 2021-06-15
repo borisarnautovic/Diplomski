@@ -20,14 +20,19 @@ ws.addEventListener("message", ({ data }) => {
 
 
 
-
 (function () {
+  let a = { alpha: null, beta: null, gamma: null };
+  let  b = { alpha: 0, beta: 0, gamma: 0 };
+  let  c = null;
+  let  d = [];
+
   function e() {
 
 
     window.addEventListener(
       "deviceorientation",
       function (c) {
+        console.log("dsda ")
         d.push("deviceorientation"),
           (a.alpha = c.alpha - b.alpha),
           (a.beta = c.beta - b.beta),
@@ -36,10 +41,7 @@ ws.addEventListener("message", ({ data }) => {
       !0
     );
   }
-  var a = { alpha: null, beta: null, gamma: null },
-    b = { alpha: 0, beta: 0, gamma: 0 },
-    c = null,
-    d = [];
+  
   (window.gyro = {}),
     (gyro.frequency = 20),
     (gyro.calibrate = function () {
@@ -66,6 +68,7 @@ ws.addEventListener("message", ({ data }) => {
     e();
 })(window);
 
+
 const calculateVolumeInstance = calculateVolume();
 
 gyro.startTracking(function (o) {
@@ -81,8 +84,11 @@ gyro.startTracking(function (o) {
     gamma: o.gamma    
   })
 
-  console.log(volume);
-  document.getElementById("volumen").innerHTML = Math.round(volume * 100)
+  // console.log(volume);
+
+  if (volume >= 0 && volume <= 1) {
+  document.getElementById("volumen").innerHTML = Math.round(volume * 100) + "%";
+  }
 
 
   ws.send(JSON.stringify({

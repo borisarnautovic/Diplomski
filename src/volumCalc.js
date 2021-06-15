@@ -16,14 +16,19 @@ const calculateVolume = () => {
     let stabAlpha = 0;
     let alphaDodeljena = false;
 
+    let volume = 0.5;
+    console.log("volume je " + volume);
 
     //const coef = 0.00555555555555555555555555555556;
 
     const coef = 0.5 / 90;
+     
+
 
     // -------------------------------------- Stabilizacija beta  --------------------------------------------------
-    return (data) => {
-
+    return (data) => 
+    {
+        // console.log(data);
 
         if (brBeta < 100 && data.beta) {
 
@@ -35,15 +40,8 @@ const calculateVolume = () => {
 
             if (i - data.beta < 3 && i - data.beta > -3) {
                 brBeta++;
-                //console.log(brBeta);
-
             }
-            else {
-                brBeta = 0;
-                iDodeljena = false
-            };
-        };
-
+        }
         if (i - data.beta > 10 || i - data.beta < -10) {
             brBeta = 0;
             iDodeljena = false;
@@ -79,7 +77,7 @@ const calculateVolume = () => {
             };
         };
 
-        if (j - data.gamma > 10 || j - data.gamma < -10) {
+        if (j - data.gamma > 10 || j - data.gamma < -10) {f
             brGamma = 0;
             jDodeljena = false;
             alphaDodeljena = false;
@@ -98,14 +96,13 @@ const calculateVolume = () => {
                 stabAlpha = data.alpha;
             }
 
-
             if (stabAlpha >= 90 && stabAlpha <= 270) {
                 if (data.alpha >= Math.abs(stabAlpha - 90) && data.alpha <= Math.abs(stabAlpha + 90)) // alpha izmedju 90 i 270 i u slucaju smanjivanja do 360
                 {
 
                     const razlika = stabAlpha - data.alpha;
 
-                    const volume = razlika * coef + 0.5;
+                    volume = razlika * coef + 0.5;
 
                     //    console.log("drugi uslov");
 
@@ -117,13 +114,14 @@ const calculateVolume = () => {
 
 
             }
-            else if (stabAlpha >= 270 && stabAlpha <= 360) {
+            else if (stabAlpha >= 270 && stabAlpha <= 360)
+             {
                 if (data.alpha >= Math.abs(stabAlpha - 90) && data.alpha <= Math.abs(stabAlpha + 90)) // u slucaju pojacavanja i smanjivanja do 360
                 {
 
                     const razlika = stabAlpha - data.alpha;
 
-                    const volume = razlika * coef + 0.5;
+                    volume = razlika * coef + 0.5;
 
                     // console.log("drugi uslov");
 
@@ -135,7 +133,7 @@ const calculateVolume = () => {
                 else if (((stabAlpha + 90) - stabAlpha) >= data.alpha) //  u slucaju smanjivanja kad ide preko 360
                 {
 
-                    const volume = ((360 - stabAlpha + data.alpha) * coef) * (-1) + 0.5;
+                    volume = ((360 - stabAlpha + data.alpha) * coef) * (-1) + 0.5;
 
                     // console.log("treci uslov");
 
@@ -144,9 +142,10 @@ const calculateVolume = () => {
                     }
                 }
             }
-            else if (stabAlpha >= 0 && stabAlpha <= 90) {
+            else if (stabAlpha >= 0 && stabAlpha <= 90) 
+            {
                 if ((stabAlpha - data.alpha) <= 0) {
-                    let volume;
+                    // let volume;
                     if ((data.alpha - stabAlpha) >= 270) //  kad predje 0 (od 360) 
                     {
                         volume = ((360 - (data.alpha - stabAlpha)) * coef) + 0.5;
@@ -155,7 +154,7 @@ const calculateVolume = () => {
                     else  // volumen od 0.0 do 0.5
                     {
 
-                        volume = Math.round(((Math.abs(stabAlpha - data.alpha) * (-1) * coef) + 0.5) * 100) / 100;
+                        volume = ((Math.abs(stabAlpha - data.alpha) * (-1) * coef) + 0.5);
 
 
 
@@ -178,9 +177,17 @@ const calculateVolume = () => {
                 }
             }
         };
-        return (volume);
+        if (volume >= 0 && volume <= 1) {
+            return (volume);
+        }
+
+        
     }
 }
 
+    
+
+    
+    
 // ----------------------------------------------------------------------
 export default calculateVolume;

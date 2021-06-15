@@ -2,7 +2,7 @@
   "name": "diplomski",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",  
+  "main": "server.js",
   "scripts": {
     "build": "webpack",
     "start": "nodemon server.js",
@@ -16,12 +16,14 @@
     "@fortawesome/fontawesome-free": "^5.15.2",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
+    "progressbar.js": "^1.1.0",
     "qrcodejs": "^1.0.0",
     "resolve-url-loader": "^3.1.2",
     "ws": "^7.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.9.6",
     "babel-loader": "^8.1.0",
     "bootstrap": "^5.0.0-alpha1",

@@ -1,79 +1,58 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const  CleanWebpackPlugin  = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 
 
 
-module.exports = 
+module.exports =
 {
     entry: {
         index: './src/index.js',
-        mobilni: './src/mobilni.js',    
+        mobilni: './src/mobilni.js',
     },
     mode: 'development',
-    devServer : {
+    devServer: {
         open: true
     },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name]main.js'
-  },    
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name]main.js'
+    },
 
     module:
     {
         rules:
-        [
-            {
-                test:/\.js$/,
-                exclude: /node_modules/,
-                use: 
+            [
                 {
-                    loader:"babel-loader"
-                }
-            },
-            
-            {
-                test: /\.(sass|scss|css)$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
-            },
+                    test: /\.js$/,
+                    exclude: /node_modules/,                    
+                    use:
+                        { loader: "babel-loader" }
+                },
 
-            {
-                test: /\.html$/,
-                
-                use: 
-                [
-                    {
-                        loader:"html-loader",
-                        options: { minimize:true }
-                    }
-                    
-                ]
-            },
-            
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                loader: 'file-loader',
-                options: {
-                    outputPath: '../fonts',
-                }
-            },
+                {
+                    test: /\.(sass|scss|css)$/,
+                    use: ['style-loader', 'css-loader', 'sass-loader'],
+                },
 
-            {
-                test: /\.(jpg|png|svg|gid)$/,
-                use: 
-                [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'img',
-                            publicPath: 'public/'                            
-                        }
-                    }
-                ]
-            },
-        ]        
-        
-    },             
+                {
+                    test: /\.html$/,
+                    use:
+                        [{ loader: "html-loader", options: { minimize: true } }]
+                },
+
+                {
+                    test: /\.(woff|woff2|eot|ttf|otf)$/,
+                    loader: 'file-loader',
+                    options: { outputPath: '../fonts', }
+                },
+
+                {
+                    test: /\.(jpg|png|svg|gid)$/,
+                    use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: 'img', publicPath: 'public/' } }]
+                },
+            ]
+
+    },
 
 }
