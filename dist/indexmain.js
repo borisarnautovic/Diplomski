@@ -401,7 +401,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _con
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"SERVER_IP\", function() { return SERVER_IP; });\nconst SERVER_IP = '192.168.43.235';\n\n\n//# sourceURL=webpack:///./src/const.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"SERVER_IP\", function() { return SERVER_IP; });\nconst SERVER_IP = '192.168.0.19';\n\n\n//# sourceURL=webpack:///./src/const.js?");
 
 /***/ }),
 
