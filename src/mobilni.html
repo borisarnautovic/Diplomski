@@ -1,48 +1,78 @@
 <!DOCTYPE html>
+
 <html lang="en" class="pc chrome 84">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Document</title>
-    
+
 </head>
+
 <body>
+
+    <div class="box">
+        <div class="percent">
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">
+                <h2>
+                    <p id="volumen">50%</p>
+                </h2>
+            </div>            
+        </div>
+        <h2 class="text">Volume</h2>
+    </div>
+
     
-    <h1>Mobilni</h1>
+      <!-- <div class="box">
+        <div class="percent">
+            <svg width="250" height="250">
+                <circle r="100" cx="125" cy="125" class="track"></circle>
+                <circle r="100" cx="125" cy="125" class="progress"></circle>
+              </svg>
+            <div class="number">
+                <h2>
+                    <p id="volumen">50%</p>
+                </h2>
+            </div>            
+        </div>
+        <h2 class="text">Volume</h2>
+    </div>  -->
+
+    <!-- Povezivanje sa WebSocket-om -->
+
+    <!-- <script>
+        const ws = new WebSocket("ws://192.168.0.19:8082/");
 
 
-    
-   
-<!-- Povezivanje sa WebSocket-om -->
 
-<script>
-    const ws = new WebSocket("ws://localhost:8082");
+        ws.addEventListener("open", () => {
+            console.log("We are connected!");
 
-      
+            ws.send("Hey, how's it going?");
+        });
 
-    ws.addEventListener("open", () => {
-        console.log("We are connected!"); 
-
-        ws.send("Hey, how's it going?");
-    });
-
-    ws.addEventListener("message", ({data}) => {
-        console.log(data);
-    });
+        ws.addEventListener("message", ({ data }) => {
+            console.log(data);
+        });
 
 
-</script>
+    </script> -->
 
-<!-- ----------------------------  -->
+    <!-- ----------------------------  -->
 
-<p>This Example just print's the raw accelerometer and gyro data.<br>Will return null if no device information is found.</p>
+    <!--<p>This Example just print's the raw accelerometer and gyro data.<br>Will return null if no device information is
+        found.</p>
     <p>gyro.getFeatures: <span id="features"></span></p>
-    <span id="example"></span>
-   
+    <span id="example"></span> -->
+
 
 </body>
 
-<script type="text/javascript" src="dist/mobilnimain.js"></script> 
+<script type="text/javascript" src="dist/mobilnimain.js"></script>
 
 </html>
